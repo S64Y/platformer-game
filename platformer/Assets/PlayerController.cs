@@ -1,7 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; //importing SceneManagement Library
 
 public class PlayerController : MonoBehaviour
 {
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
         //player moves left
         if (Input.GetKey("a"))
-        { 
+        {
             newPosition.x -= speed;
             newScale.x = -currentScale;
         }
@@ -53,6 +53,15 @@ public class PlayerController : MonoBehaviour
 
         transform.position = newPosition;
         transform.localScale = newScale;
-          
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("END"))
+        {
+            Debug.Log("hit");
+            SceneManager.LoadScene(2); //access SceneManager class for LoadScene function
+        }
     }
 }
