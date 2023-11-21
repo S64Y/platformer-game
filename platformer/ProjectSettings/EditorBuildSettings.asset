@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Animated 2D Coins/Scene/Start.unity
+    guid: 2483a9d23778345f5acbf515361762ee
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Animated 2D Coins/Scene/Ending.unity
+    guid: ad247855341e746f9b74ee0eaa344e02
   m_configObjects: {}
