@@ -10,6 +10,11 @@ public class PlayerController : MonoBehaviour
     public float jumpForce; //the force that will be added to the vertical component of player's velocity
     public float speed = 0.2f;
 
+    //Ground Check Variables
+    public LayerMask groundLayer;//layer information
+    public Transform groundCheck;// player position info
+    public bool isGrounded;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +24,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, .5f, groundLayer);
 
         Vector3 newPosition = transform.position;
         Vector3 newScale = transform.localScale;
@@ -39,7 +45,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown("w"))
+        if (Input.GetKeyDown("w") && isGrounded == false)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
